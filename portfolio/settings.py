@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "blog.apps.BlogConfig",
+    "folio.apps.FolioConfig",
+    "contactme.apps.ContactmeConfig",
     "markdownx",
     "django_countries",
     "django.contrib.admin",
