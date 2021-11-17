@@ -4,8 +4,6 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from movies.tests import create_movie
-
 from .models import Article, Tag
 
 # Create your tests here.
