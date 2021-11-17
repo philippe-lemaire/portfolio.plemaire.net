@@ -1,1 +1,24 @@
 {% extends "base.html" %}
+{% block title %}Actualités{% endblock %}
+{% block content %}
+
+<h1>Les projets</h1>
+{% if project_list %}
+
+{% for project in project_list %}
+<div>
+    <p>{{project.title}}</p>
+    <p>{{project.summary}}</p>
+    <p> {{project.content}}</p>
+    <p><a target="blank" href="{{project.git_repo}}">Voir le dépôt git</a></p>
+    {% if project.deployed_url %}
+    <p><a target="blank" href="{{project.deployed_url}}">Voir le projet en action</a></p>
+    {% endif %}
+</div>
+{% endfor %}
+
+
+{% else %}
+<p>Aucun projet.</p>
+{% endif %}
+{% endblock %}
