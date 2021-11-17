@@ -25,7 +25,13 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["portfolio-philippe-lemaire.herokuapp.com", "portfolio.plemaire.net"]
+ALLOWED_HOSTS = [
+    "portfolio-philippe-lemaire.herokuapp.com",
+    "portfolio.plemaire.net",
+    "localhost",
+    "0.0.0.0",
+    "127.0.0.1",
+]
 
 
 # Application definition
