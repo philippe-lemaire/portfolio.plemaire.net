@@ -21,6 +21,7 @@ class Tag(models.Model):
 class Project(models.Model):
     slug = models.SlugField()
     title = models.CharField(max_length=200)
+    cover_img = models.ImageField(upload_to="images/", blank=True)
     summary = models.TextField()
     content = MarkdownxField()
     pub_date = models.DateTimeField(auto_now_add=True)

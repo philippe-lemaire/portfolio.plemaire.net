@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ project.title|title }}{% endblock %}
+{% block content %}
+
+<h1>{{ project.title|title }}</h1>
+
+{% if project.cover_img %}
+<img src="{{ project.cover_img.url }}" class="card-img-top" alt="{{ project.title }}">
+{% endif %}
+{{ project.content }}
+
+<p>Liens : <br>
+    <a target="blank_" href="{{ project.git_repo }}" class="btn btn-primary">Dépôt Git</a>
+    {% if project.deployed_url %}
+    <a target="blank_" href="{{ project.deployed_url }}" class="btn btn-primary">Le projet déployé</a>
+    {% endif %}
+    🏷️
+    {% for tag in project.tags.all %}
+    <a class="badge rounded-pill bg-primary text-light" href="{% url 'folio:tag_detail' tag.slug %}">{{tag.name}}</a>
+    {% endfor %}<br><br>
+
+</p>
+
+{% endblock %}
