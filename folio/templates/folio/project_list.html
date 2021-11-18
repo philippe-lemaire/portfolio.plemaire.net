@@ -1,23 +1,39 @@
 {% extends "base.html" %}
-{% block title %}Actualités{% endblock %}
+{% block title %}Projets data-science{% endblock %}
 {% block content %}
 
-<h1>Les projets</h1>
+<h1>Projets Data-Science</h1>
 {% if project_list %}
+<div class="container overflow-hidden">
+    <div class="row gx-5 gy-5">
+        {% for project in project_list %}
+        <div class="col-6">
+            {% if project.cover_img %}
+            <a href="{% url 'folio:detail' project.slug %}"><img src="{{ project.cover_img.url }}" class="card-img-top"
+                    alt="{{ project.title }}"></a>
+            {% endif %}
+            <div class="p-3 border">
+                <h5 class="card-title"><a href="{% url 'folio:detail' project.slug %}">{{ project.title }}</a></h5>
+                <p class="card-text">{{ project.summary }}</p>
 
-{% for project in project_list %}
-<div>
-    <p>{{project.title}}</p>
-    <p>{{project.summary}}</p>
-    <p> {{project.content}}</p>
-    <p><a target="blank" href="{{project.git_repo}}">Voir le dépôt git</a></p>
-    {% if project.deployed_url %}
-    <p><a target="blank" href="{{project.deployed_url}}">Voir le projet en action</a></p>
-    {% endif %}
+                Étiquettes :
+                <ul>
+                    {% for tag in project.tags.all %}
+                    <li><a href="{% url 'folio:tag_detail' tag.slug %}">{{tag.name}}</a></li>
+                    {% endfor %}
+                </ul>
+                <a target="blank_" href="{{ project.git_repo }}" class="btn btn-outline-dark">GitHub</a>
+                {% if project.deployed_url %}
+                <a target=" blank_" href="{{ project.deployed_url }}" class="btn btn-outline-success">Le projet
+                    déployé</a>
+                {% endif %}
+
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
 </div>
-{% endfor %}
-
-
 {% else %}
 <p>Aucun projet.</p>
 {% endif %}
