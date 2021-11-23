@@ -5,7 +5,7 @@
 <h1>{{ project.title|title }}</h1>
 
 {% if project.cover_img %}
-<img src="{{ project.cover_img.url }}" class="card-img-top" alt="{{ project.title }}">
+<img style="margin-bottom: 20px" src="{{ project.cover_img.url }}" class="card-img-top" alt="{{ project.title }}">
 {% endif %}
 
 {{ project.formatted_markdown|safe}}
