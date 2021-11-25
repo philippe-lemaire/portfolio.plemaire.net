@@ -8,10 +8,10 @@
     <div class="row gx-5 gy-5">
         {% for project in project_list %}
         <div class="col-6">
-            {% if project.cover_img %}
+            <!--{% if project.cover_img %}
             <a href="{% url 'folio:detail' project.slug %}"><img src="{{ project.cover_img.url }}" class="card-img-top"
                     alt="{{ project.title }}"></a>
-            {% endif %}
+            {% endif %}-->
             <div class="p-3 border">
                 <h5 class="card-title"><a href="{% url 'folio:detail' project.slug %}">{{ project.title }}</a></h5>
                 <p class="card-text">{{ project.summary }}</p>
